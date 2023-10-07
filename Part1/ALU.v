@@ -27,24 +27,24 @@ module ALU (
 
     always @(*) begin
         case(funct)
-            4'b0000: out = add_out;
-            4'b0001: out = sub_out;
-            4'b0010: out = and_out;
-            4'b0011: out = or_out;
-            4'b0100: out = xor_out;
-            4'b0101: out = not_out;
-            4'b0110: out = sla_out;
-            4'b0111: out = sra_out;
-            4'b1000: out = srl_out;
-            default: out = 0;
+            4'b0000: out <= add_out;
+            4'b0001: out <= sub_out;
+            4'b0010: out <= and_out;
+            4'b0011: out <= or_out;
+            4'b0100: out <= xor_out;
+            4'b0101: out <= not_out;
+            4'b0110: out <= sla_out;
+            4'b0111: out <= sra_out;
+            4'b1000: out <= srl_out;
+            default: out <= 0;
         endcase
     end
 
     always @(*) begin
         if(out == 0) begin
-            flagZ = 1;
+            flagZ <= 1;
         end else begin
-            flagZ = 0;
+            flagZ <= 0;
         end
     end
 endmodule
