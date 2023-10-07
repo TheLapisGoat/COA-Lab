@@ -1,6 +1,6 @@
 module ALU (
-    input wire [31:0] A,
-    input wire [31:0] B,
+    input signed [31:0] A,
+    input signed [31:0] B,
     input wire [3:0] funct,
     output reg [31:0] out,
     output reg flagZ
@@ -108,7 +108,7 @@ module SLA (
     output wire [31:0] S
 );
 
-    assign S = A << B;
+    assign S = A << B[0];
 endmodule
 
 module SRA (
@@ -117,7 +117,7 @@ module SRA (
     output wire [31:0] S
 );
 
-    assign S = A >>> B;
+    assign S = A >>> B[0];
 endmodule
 
 module SRL (
@@ -126,5 +126,5 @@ module SRL (
     output wire [31:0] S
 );
 
-    assign S = A >> B;
+    assign S = A >> B[0];
 endmodule

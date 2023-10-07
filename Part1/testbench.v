@@ -40,9 +40,9 @@ module testbench_ALU;
         $display("out = %d", out);
 
         // Test case 3: Shift Left Arithmetic (SLA)
-      $display("Test case 3: Shift Left Arithmetic (SLA) (A = 16, B = 2)");
+      $display("Test case 3: Shift Left Arithmetic (SLA) (A = 16, B = 1)");
         A = 16;
-        B = 2;
+        B = 1;
         funct = 4'b0110; // SLA
         #10;
         $display("out = %d", out);
@@ -72,17 +72,17 @@ module testbench_ALU;
         $display("out = %b", out);
 
         // Test case 7: Arithmetic right shift (SRA) with sign extension
-        $display("Test case 7: Arithmetic right shift (SRA) with sign extension (A = -12, B = 2)");
+        $display("Test case 7: Arithmetic right shift (SRA) with sign extension (A = -12, B = 1)");
         A = -12;
-        B = 2;
+        B = 1;
         funct = 4'b0111; // SRA
         #10;
         $display("out = %b", out);
 
         // Test case 8: Logical right shift (SRL) with zero fill
-        $display("Test case 8: Logical right shift (SRL) with zero fill (A = 0'b10101010101010101010101010101010, B = 4)");
+        $display("Test case 8: Logical right shift (SRL) with zero fill (A = 0'b10101010101010101010101010101010, B = 1)");
         A = 0'b10101010101010101010101010101010;
-        B = 4;
+        B = 1;
         funct = 4'b1000; // SRL
         #10;
         $display("out = %b", out);
