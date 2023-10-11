@@ -8,6 +8,7 @@ module testbench_ALU;
 
     wire [31:0] out;
     wire flagZ;
+    wire flagS;
 
     ALU my_ALU (
       .A(A),
@@ -15,6 +16,7 @@ module testbench_ALU;
       .funct(funct),
       .out(out),
       .flagZ(flagZ)
+      .flagS(flagS)
     );
 
     reg clock = 0;
@@ -93,7 +95,7 @@ module testbench_ALU;
         B = 15;
         funct = 4'b0100; // XOR
         #10;
-        $display("out = %d, flagZ = %d", out, flagZ);
+        $display("out = %d, flagZ = %d, flagS = %d", out, flagZ, flagS);
 
         $finish;
     end

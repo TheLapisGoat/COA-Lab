@@ -3,7 +3,8 @@ module ALU (
     input signed [31:0] B,
     input wire [3:0] funct,
     output reg [31:0] out,
-    output reg flagZ
+    output reg flagZ,
+    output reg flagS
 );
     wire [31:0] add_out;
     wire [31:0] sub_out;
@@ -46,6 +47,7 @@ module ALU (
         end else begin
             flagZ <= 0;
         end
+        flagS <= A[31];
     end
 endmodule
 

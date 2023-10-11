@@ -12,6 +12,7 @@ module ALU_FPGA_test(
     reg btnlock;
     wire [31:0] S;
     wire flagZ;
+    wire flagS;
 
     initial begin
         state = 0;
@@ -27,7 +28,8 @@ module ALU_FPGA_test(
         B,
         funct,
         S,
-        flagZ
+        flagZ,
+        flagS
     );
 
     always @(posedge clk) begin
@@ -42,9 +44,10 @@ module ALU_FPGA_test(
                 5: out = S[15:0];
                 6: out = S[31:16];
                 7: out = flagZ;
+                8: out = flagS;
             endcase
             state = state + 1;
-            if (state == 8) begin
+            if (state == 9) begin
                 state = 0;
             end 
         end else begin
