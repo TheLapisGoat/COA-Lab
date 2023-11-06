@@ -1,0 +1,15 @@
+LD $R1, Number1
+LD $R2, Number2
+GCD:
+SUB $R3, $R1, $R2
+BPL $R3, NoSwap
+MOVE $R3, $R1
+MOVE $R1, $R2
+MOVE $R2, $R3
+NoSwap:
+BZ $R2, ExitGCD
+SUB $R1, $R1, $R2
+BR GCD
+ExitGCD:
+MOVE $R15, $R1
+HALT
