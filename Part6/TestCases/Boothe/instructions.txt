@@ -1,0 +1,43 @@
+LD $R1, Number1
+LD $R2, Number2
+MOVE $R3, $R0
+ADDI $R3, 32
+MOVE $R4, $R0
+MOVE $R5, $R0
+MOVE $R6, $R0
+BootheLoop:
+MOVE $R7, $R2
+ANDI $R7, 1
+SLLI $R7, 1
+OR $R7, $R7, $R6
+BZ $R7, RightShift
+SUBI $R7, 1
+BZ $R7, case01
+SUBI $R7, 1
+BZ $R7, case10
+SUBI $R7, 1
+BZ $R7, RightShift
+case01:
+ADD $R4, $R4, $R1
+BR RightShift
+case10:
+SUB $R4, $R4, $R1
+BR RightShift
+RightShift:
+MOVE $R7, $R4
+ANDI $R7, 1
+MOVE $R8, $R0
+ADDI $R8, 31
+FOR:
+SLLI $R7, 1
+SUBI $R8, 1
+BPL $R8, FOR
+MOVE $R6, $R2
+ANDI $R6, 1
+SRLI $R2, 1
+OR $R2, $R2, $R7
+SRAI $R4, 1
+SUBI $R3, 1
+BPL $R3, BootheLoop
+MOVE $R15, $R2
+HALT
