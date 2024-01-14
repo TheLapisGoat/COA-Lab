@@ -1,2 +1,0 @@
-Number1: .word 25
-Number2: .word 25
